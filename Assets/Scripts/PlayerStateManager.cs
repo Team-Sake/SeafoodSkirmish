@@ -9,6 +9,9 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerIdleState IdleState = new  PlayerIdleState();
     public PlayerDodgeLeftState DodgeLeftState = new PlayerDodgeLeftState();
     public PlayerDodgeRightState DodgeRightState = new PlayerDodgeRightState();
+    public PlayerAttackStartupState AttackStartupState = new PlayerAttackStartupState();
+    public PlayerAttackState AttackState = new PlayerAttackState();
+    public PlayerRecoveryState RecoveryState = new PlayerRecoveryState();
     void Start()
     {
         currentState = IdleState;

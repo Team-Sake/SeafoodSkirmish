@@ -9,6 +9,10 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager player)
     {
+        if (Input.GetKeyDown("space"))
+        {
+            player.SwitchState(player.AttackStartupState);
+        }
         if (Input.GetAxisRaw("Horizontal") == -1)
         {
             player.SwitchState(player.DodgeLeftState);

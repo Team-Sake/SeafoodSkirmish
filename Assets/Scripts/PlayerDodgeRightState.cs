@@ -13,7 +13,11 @@ public class PlayerDodgeRightState : PlayerBaseState
     public override void UpdateState(PlayerStateManager player)
     {
         currentTime -= 1 * Time.deltaTime;
-        if (currentTime <= 0)
+        if (Input.GetKeyDown("space"))
+        {
+            player.SwitchState(player.AttackStartupState);
+        }
+        else if (currentTime <= 0)
         {
             player.SwitchState(player.IdleState);
         }
