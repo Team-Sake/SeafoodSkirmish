@@ -20,8 +20,10 @@ public class FishingSlider : MonoBehaviour
     [SerializeField] float smoothMotion = 1f;
 
     [SerializeField] Transform hook;
+    [SerializeField] Transform zone;
     float hookPosition;
     [SerializeField] float hookSize = 0.1f;
+    [SerializeField] float zoneSize = 0.1f;
     [SerializeField] float hookPower = 5f;
     float hookProgress;
     float hookPullVelocity;
@@ -30,6 +32,7 @@ public class FishingSlider : MonoBehaviour
     [SerializeField] float hookProgressDegradationPower = 0.1f;
 
     [SerializeField] SpriteRenderer hookSpriteRenderer;
+    [SerializeField] SpriteRenderer hookSpriteRendererZone;
 
     [SerializeField] Transform progressBarContainer;
 
@@ -41,16 +44,28 @@ public class FishingSlider : MonoBehaviour
     private void Start()
     {
         Resize();
+        ResizeZone();
     }
 
     private void Resize()
     {
         Bounds b = hookSpriteRenderer.bounds;
-        float ySize = b.size.y;
+        float xSize = b.size.x;
         Vector3 ls = hook.localScale;
         float distance = Vector3.Distance(topPivot.position, bottomPivot.position);
-        ls.y = (distance / ySize * hookSize);
+        ls.x = (distance / xSize * hookSize);
         hook.localScale = ls;
+
+    }
+
+    private void ResizeZone()
+    {
+        Bounds b = hookSpriteRendererZone.bounds;
+        float xSize = b.size.x;
+        Vector3 ls = zone.localScale;
+        float distance = Vector3.Distance(topPivot.position, bottomPivot.position);
+        ls.x = (distance / xSize * zoneSize);
+        zone.localScale = ls;
 
     }
 
