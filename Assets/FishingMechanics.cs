@@ -8,6 +8,9 @@ public class FishingSlider : MonoBehaviour
     [SerializeField] Transform topPivot;
     [SerializeField] Transform bottomPivot;
 
+    [SerializeField] Transform topPivotZone;
+    [SerializeField] Transform bottomPivotZone;
+
     [SerializeField] Transform fish;
 
     float fishPosition;
@@ -63,7 +66,7 @@ public class FishingSlider : MonoBehaviour
         Bounds b = hookSpriteRendererZone.bounds;
         float xSize = b.size.x;
         Vector3 ls = zone.localScale;
-        float distance = Vector3.Distance(topPivot.position, bottomPivot.position);
+        float distance = Vector3.Distance(topPivotZone.position, bottomPivotZone.position);
         ls.x = (distance / xSize * zoneSize);
         zone.localScale = ls;
 
@@ -154,7 +157,7 @@ public class FishingSlider : MonoBehaviour
         }
 
         fishPosition = Mathf.SmoothDamp(fishPosition, fishDestination, ref fishSpeed, smoothMotion);
-        fish.position = Vector3.Lerp(bottomPivot.position, topPivot.position, fishPosition);
+        fish.position = Vector3.Lerp(bottomPivotZone.position, topPivotZone.position, fishPosition);
     }
 }
 
