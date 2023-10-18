@@ -100,12 +100,12 @@ public class FishingSlider : MonoBehaviour
                 Lose();
             }
         }
-        if(hookProgress >= 1f)
+        if(hookProgress >= 1.53f)
         {
             Win();
         }
 
-        hookProgress = Mathf.Clamp(hookProgress, 0f, 1f);
+        hookProgress = Mathf.Clamp(hookProgress, 0f, 1.53f);
     }
 
     private void Lose()
