@@ -499,6 +499,10 @@ MonoBehaviour:
   targetLeft: {fileID: 1863890373}
   targetRight: {fileID: 626470954}
   speed: 1
+  isLeft: 0
+  isRight: 0
+  dodgeTime: 0.75
+  isAtCenter: 0
 --- !u!1 &1055967327
 GameObject:
   m_ObjectHideFlags: 0

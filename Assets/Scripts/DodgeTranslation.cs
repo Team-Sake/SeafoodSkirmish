@@ -8,40 +8,62 @@ public class DodgeTranslation : MonoBehaviour
     public GameObject targetRight;
     public float speed;
 
+    public bool isLeft;
+    public bool isRight;
+    
+    private float remainingTime;
+    public float dodgeTime;
+
+    public bool isAtCenter;
+
     Vector3 DefaultPosition;
     // Start is called before the first frame update
     void Start()
     {
+        isAtCenter = true;
+        isLeft = false;
+        isRight = false;
+        remainingTime = dodgeTime;
         DefaultPosition = player.transform.position;
     }
 
     void FixedUpdate()
     {
-        if (Input.GetAxisRaw("Horizontal") == -1)
+        if (player.transform.position != DefaultPosition)
         {
-            StartCoroutine(dodgeLeft());
+            isAtCenter = false;
         }
-        if (Input.GetAxisRaw("Horizontal") == 1)
+        else
         {
-            StartCoroutine(dodgeRight());
+            isAtCenter = true;
+        }
+
+        if (isLeft)
+        {
+
+            player.position = Vector3.MoveTowards(player.position, targetLeft.transform.position, speed);
+            remainingTime -= Time.deltaTime;
+            if (remainingTime < 0)
+            {
+                isLeft = false;
+                remainingTime = dodgeTime;
+            }
+        }
+        else if (isRight)
+        {
+            player.position = Vector3.MoveTowards(player.position, targetRight.transform.position, speed);
+            remainingTime -= Time.deltaTime;
+            if (remainingTime < 0)
+            {
+                isRight = false;
+                remainingTime = dodgeTime;
+            }
+        }
+        else
+        {
+            player.position = Vector3.MoveTowards(player.position, DefaultPosition, speed);
         }
     }
-
-    public IEnumerator dodgeLeft()
-    {
-        player.position = Vector3.MoveTowards(player.position, targetLeft.transform.position, speed);
-        yield return new WaitForSeconds(1);
-        player.position = Vector3.MoveTowards(player.position, DefaultPosition, speed);
-
-    }
-
-    public IEnumerator dodgeRight()
-    {
-        player.position = Vector3.MoveTowards(player.position, targetRight.transform.position, speed);
-        yield return new WaitForSeconds(1);
-        player.position = Vector3.MoveTowards(player.position, DefaultPosition, speed);
-    }
-
 
     
 

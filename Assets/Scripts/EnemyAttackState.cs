@@ -38,7 +38,7 @@ public class EnemyAttackState : MonoBehaviour
             // }
             // NextAttackPos = AttackPositions[1];
             // NextAttackPos = AttackPositions[Random.Range(1, AttackPositions.Length)];
-            Debug.Log(NextAttackPos);
+            // Debug.Log(NextAttackPos);
             
         }
         else
@@ -57,7 +57,7 @@ public class EnemyAttackState : MonoBehaviour
         {
             yield return new WaitForSeconds(3);
             NextAttackPos = AttackPositions[0];
-            Debug.Log(NextAttackPos);
+            // Debug.Log(NextAttackPos);
             // enemy.position = Vector3.MoveTowards(transform.position, NextAttackPos.position, EnemySpeed * Time.deltaTime);
             enemy.position = Vector3.MoveTowards(enemy.position, NextAttackPos.position, EnemySpeed * Time.deltaTime);
 
