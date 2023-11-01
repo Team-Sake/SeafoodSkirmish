@@ -6,27 +6,28 @@ public class EnemyStateManager : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    
-    // public EnemyAttackStartupState attackStartup = new EnemyAttackStartupState();
-    // public EnemyAttackState attackState = new EnemyAttackState();
-    // public EnemyRecoveryState recoveryState = new EnemyRecoveryState();
+    EnemyBaseState currentState;    
+    public EnemyIdleState idleState =  new EnemyIdleState();
+    public EnemyAttackStartupState attackStartupState = new EnemyAttackStartupState();
+    public EnemyAttackState attackState = new EnemyAttackState();
+    public EnemyRecoveryState recoveryState = new EnemyRecoveryState();
     // public EnemyStunnedState stunnedState = new EnemyStunnedState(); 
     void Start()
     {
-        // currentState = idleState;
-        // currentState.enterState(this);
+        currentState = idleState;
+        currentState.EnterState(this);
     }
 
     // Update is called once per frame
     void Update()
     {
-        // currentState.UpdateState(this);
+        currentState.UpdateState(this);
         
     }
 
-    // public void switchState(EnemyBaseState state){
-    //     currentState = state;
-    //     currentState.enterState(this);
+    public void SwitchState(EnemyBaseState state){
+        currentState = state;
+        currentState.EnterState(this);
 
-    // }
+    }
 }
