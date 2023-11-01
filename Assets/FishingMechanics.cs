@@ -39,15 +39,17 @@ public class FishingSlider : MonoBehaviour
 
     [SerializeField] Transform progressBarContainer;
 
-    bool pause = false;
+    [SerializeField] Timer timer;
 
-    [SerializeField] float failTimer = 10f;
+    bool pause = false;
 
 
     private void Start()
     {
         Resize();
         ResizeZone();
+        timer.SetTimer(60);
+        timer.StartTimer();
     }
 
     private void Resize()
@@ -74,7 +76,9 @@ public class FishingSlider : MonoBehaviour
 
     private void Update()
     {
-        if(pause) { return; }
+        if(pause) {
+            return;
+        }
         Fish();
         Hook();
         ProgressCheck();
@@ -89,6 +93,12 @@ public class FishingSlider : MonoBehaviour
         float min = hookPosition - hookSize / 2;
         float max = hookPosition + hookSize / 2;
 
+        if (!timer.timerIsRunning)
+        {
+            Lose();
+            return;
+        }
+
         if(min < fishPosition && fishPosition < max)
         {
             hookProgress += hookPower * Time.deltaTime;
@@ -97,11 +107,6 @@ public class FishingSlider : MonoBehaviour
         {
             hookProgress -= hookProgressDegradationPower * Time.deltaTime;
 
-            failTimer -= Time.deltaTime;
-            if(failTimer < 0f)
-            {
-                Lose();
-            }
         }
         if(hookProgress >= 1.53f)
         {
@@ -119,6 +124,7 @@ public class FishingSlider : MonoBehaviour
     
     private void Win()
     {
+        timer.timerIsRunning = false;
         pause = true;
         Debug.Log("You caught the fish, go to phase 2");
     }
