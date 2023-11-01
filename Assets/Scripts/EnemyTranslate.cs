@@ -10,8 +10,10 @@ public class EnemyTranslate : MonoBehaviour
     public GameObject targetLeft;
     public GameObject targetRight;
     public float speed;
+    public float attackTime;
+    public float recoveryTime;
     public float attackStartupTime;
-    Vector3 DefaultPosition;
+    public Vector3 DefaultPosition;
     public bool isStartupLeft;
     public bool isStartupRight;
     public bool isAttackingLeft;
@@ -51,5 +53,10 @@ public class EnemyTranslate : MonoBehaviour
         {
             enemy.position = Vector3.MoveTowards(enemy.position, DefaultPosition, speed);
         }
+    }
+
+    public Transform getEnemy()
+    {
+        return enemy;
     }
 }

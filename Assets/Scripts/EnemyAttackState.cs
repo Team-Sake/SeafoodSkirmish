@@ -4,14 +4,38 @@ using UnityEngine;
 
 public class EnemyAttackState : EnemyBaseState
 {
+    float timeLeft;
+    EnemyTranslate animation;
     public override void EnterState(EnemyStateManager enemy)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Enemy Attack");
+        animation = enemy.gameObject.GetComponent<EnemyTranslate>();
+        timeLeft = animation.attackTime;
+        if (animation.getEnemy().position == animation.startupLeft.transform.position)
+        {
+            animation.isAttackingLeft = true;
+        }
+        else
+        {
+            animation.isAttackingRight = true;
+        }
     }
 
     public override void UpdateState(EnemyStateManager enemy)
     {
-        throw new System.NotImplementedException();
+        if (animation.getEnemy().position == animation.targetLeft.transform.position || animation.getEnemy().position == animation.targetRight.transform.position)
+        {
+            timeLeft -= Time.deltaTime;
+        
+        
+            if (timeLeft <= 0)
+            {
+                
+                animation.isAttackingLeft = false;
+                animation.isAttackingRight = false;
+                enemy.SwitchState(enemy.recoveryState);
+            }
+        }
     }
     // public Transform enemy;
     // [SerializeField] Transform[] AttackPositions;
