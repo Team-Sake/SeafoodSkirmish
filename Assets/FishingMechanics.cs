@@ -48,7 +48,7 @@ public class FishingSlider : MonoBehaviour
     {
         Resize();
         ResizeZone();
-        timer.SetTimer(60);
+        timer.SetTimer(20);
         timer.StartTimer();
     }
 
@@ -119,7 +119,6 @@ public class FishingSlider : MonoBehaviour
     private void Lose()
     {
         pause = true;
-        Debug.Log("The fish got away");
     }
     
     private void Win()
