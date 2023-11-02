@@ -18,6 +18,12 @@ public class EnemyVulnerableState : EnemyBaseState
         if (collider.gameObject.CompareTag("Player Hitbox"))
         {
             Debug.Log("Enemy Damaged");
+            enemy.GetComponent<HealthManager>().TakeDamage(collider.GetComponent<Hitbox>().damage);
+            if (enemy.GetComponent<HealthManager>().IsDead())
+            {
+                renderer.color = Color.gray;
+                enemy.SwitchState(enemy.deadState);
+            }
         }   
     }
 

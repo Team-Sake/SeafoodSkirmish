@@ -12,6 +12,7 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyAttackState attackState = new EnemyAttackState();
     public EnemyRecoveryState recoveryState = new EnemyRecoveryState();
     public EnemyVulnerableState vulnerableState = new EnemyVulnerableState();
+    public EnemyDeadState deadState = new EnemyDeadState();
     // public EnemyStunnedState stunnedState = new EnemyStunnedState(); 
     void Start()
     {
