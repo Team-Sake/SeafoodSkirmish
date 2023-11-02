@@ -14,11 +14,14 @@ public class EnemyAttackState : EnemyBaseState
         if (animation.getEnemy().position == animation.startupLeft.transform.position)
         {
             animation.isAttackingLeft = true;
+            enemy.GetComponent<EnemyAttackManager>().CreateHitboxLeft();
         }
         else
         {
             animation.isAttackingRight = true;
+            enemy.GetComponent<EnemyAttackManager>().CreateHitboxRight();
         }
+        
     }
 
     public override void UpdateState(EnemyStateManager enemy)
@@ -33,6 +36,7 @@ public class EnemyAttackState : EnemyBaseState
                 
                 animation.isAttackingLeft = false;
                 animation.isAttackingRight = false;
+                enemy.GetComponent<EnemyAttackManager>().DestroyHitbox();
                 enemy.SwitchState(enemy.recoveryState);
             }
         }

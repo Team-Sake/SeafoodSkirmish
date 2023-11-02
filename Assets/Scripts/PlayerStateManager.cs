@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStateManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+
     PlayerBaseState currentState;
     public PlayerIdleState IdleState = new  PlayerIdleState();
     public PlayerDodgeLeftState DodgeLeftState = new PlayerDodgeLeftState();
@@ -12,6 +10,8 @@ public class PlayerStateManager : MonoBehaviour
     public PlayerAttackStartupState AttackStartupState = new PlayerAttackStartupState();
     public PlayerAttackState AttackState = new PlayerAttackState();
     public PlayerRecoveryState RecoveryState = new PlayerRecoveryState();
+    public PlayerDamagedState DamagedState = new PlayerDamagedState();
+    public PlayerDeadState DeadState = new PlayerDeadState();
     void Start()
     {
         currentState = IdleState;
@@ -19,11 +19,14 @@ public class PlayerStateManager : MonoBehaviour
     }
 
     // Update is called once per frame
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        currentState.OnTriggerEnter2D(this, collider);
+    }
     void Update()
     {
         currentState.UpdateState(this);
     }
-
     public void SwitchState(PlayerBaseState state)
     {
         currentState = state;
