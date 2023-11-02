@@ -262,7 +262,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 338107153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb2050c0db492194d9bcf84d164486e9, type: 3}
+  m_Script: {fileID: 11500000, guid: a4581b6787bb1374dbe642cc774d5370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 338107155}
@@ -289,12 +289,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 338107153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a35fa6e21699e5d4881d3558b8083dcf, type: 3}
+  m_Script: {fileID: 11500000, guid: c83e463547ad1ed4abd4385938b4e723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hitboxPointLeft: {fileID: 299808442}
   hitboxPointRight: {fileID: 1868365192}
-  hitboxPrefab: {fileID: 6207984482078356622, guid: 30751e84d784078428a92ce447a1d968, type: 3}
+  hitboxPrefab: {fileID: 6207984482078356622, guid: 487e92990d56ceb45856295cb3c51da9, type: 3}
   activeHitbox: {fileID: 0}
   hitBoxDamage: 50
 --- !u!1 &395056773
@@ -645,7 +645,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 778382211}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 239b5553f9093c949af395150e19dd03, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f482fd867aa88f4a9fa4b43e231ac0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
