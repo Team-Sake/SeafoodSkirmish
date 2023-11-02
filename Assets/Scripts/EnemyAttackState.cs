@@ -24,6 +24,11 @@ public class EnemyAttackState : EnemyBaseState
         
     }
 
+    public override void OnTriggerEnter2D(EnemyStateManager enemy, Collider2D collider)
+    {
+        return;
+    }
+
     public override void UpdateState(EnemyStateManager enemy)
     {
         if (animation.getEnemy().position == animation.targetLeft.transform.position || animation.getEnemy().position == animation.targetRight.transform.position)
@@ -37,7 +42,7 @@ public class EnemyAttackState : EnemyBaseState
                 animation.isAttackingLeft = false;
                 animation.isAttackingRight = false;
                 enemy.GetComponent<EnemyAttackManager>().DestroyHitbox();
-                enemy.SwitchState(enemy.recoveryState);
+                enemy.SwitchState(enemy.vulnerableState);
             }
         }
     }

@@ -13,6 +13,7 @@ public class EnemyTranslate : MonoBehaviour
     public float attackTime;
     public float recoveryTime;
     public float attackStartupTime;
+    public float vulnerableTime;
     public Vector3 DefaultPosition;
     public bool isStartupLeft;
     public bool isStartupRight;

@@ -11,6 +11,7 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyAttackStartupState attackStartupState = new EnemyAttackStartupState();
     public EnemyAttackState attackState = new EnemyAttackState();
     public EnemyRecoveryState recoveryState = new EnemyRecoveryState();
+    public EnemyVulnerableState vulnerableState = new EnemyVulnerableState();
     // public EnemyStunnedState stunnedState = new EnemyStunnedState(); 
     void Start()
     {
@@ -18,7 +19,10 @@ public class EnemyStateManager : MonoBehaviour
         currentState.EnterState(this);
     }
 
-    // Update is called once per frame
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        currentState.OnTriggerEnter2D(this, collider);
+    }
     void Update()
     {
         currentState.UpdateState(this);

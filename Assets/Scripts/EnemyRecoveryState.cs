@@ -15,6 +15,11 @@ public class EnemyRecoveryState : EnemyBaseState
         
     }
 
+    public override void OnTriggerEnter2D(EnemyStateManager enemy, Collider2D collider)
+    {
+        return;
+    }
+
     public override void UpdateState(EnemyStateManager enemy)
     {
         if (animation.enemy.position == animation.DefaultPosition)

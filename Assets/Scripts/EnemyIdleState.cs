@@ -15,6 +15,11 @@ public class EnemyIdleState : EnemyBaseState
         timeLeft = (float)timer;
     }
 
+    public override void OnTriggerEnter2D(EnemyStateManager enemy, Collider2D collider)
+    {
+        return;
+    }
+
     // Update is called once per frame
     public override void UpdateState(EnemyStateManager enemy)
     {
