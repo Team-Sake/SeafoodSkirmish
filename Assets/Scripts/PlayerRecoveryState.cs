@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerRecoveryState : PlayerBaseState
 {
     float currentTime = 0f;
-    float startingTime = 1f;
+    float startingTime = 0.2f;
     public override void EnterState(PlayerStateManager player)
     {
         Debug.Log("Recovery");
@@ -12,7 +12,7 @@ public class PlayerRecoveryState : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager player)
     {
-        currentTime -= 1 * Time.deltaTime;
+        currentTime -= Time.deltaTime;
         if (currentTime <= 0)
         {
             player.SwitchState(player.IdleState);
@@ -23,7 +23,7 @@ public class PlayerRecoveryState : PlayerBaseState
     {
         if (collider.gameObject.CompareTag("Enemy Hitbox"))
         {
-            player.gameObject.GetComponent<PlayerHealthManager>().TakeDamage(collider.gameObject.GetComponent<Hitbox>().GetDamage());
+            player.gameObject.GetComponent<HealthManager>().TakeDamage(collider.gameObject.GetComponent<Hitbox>().GetDamage());
             player.SwitchState(player.DamagedState);
         }
     }

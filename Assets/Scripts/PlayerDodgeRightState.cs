@@ -14,12 +14,7 @@ public class PlayerDodgeRightState : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager player)
     {
-        // currentTime -= 1 * Time.deltaTime;
-        if (Input.GetKeyDown("space"))
-        {
-            player.SwitchState(player.AttackStartupState);
-        }
-        else if (animation.isAtCenter)
+        if (animation.isAtCenter)
         {
             player.SwitchState(player.IdleState);
         }
@@ -28,7 +23,7 @@ public class PlayerDodgeRightState : PlayerBaseState
     {
         if (collider.gameObject.CompareTag("Enemy Hitbox"))
         {
-            player.gameObject.GetComponent<PlayerHealthManager>().TakeDamage(collider.gameObject.GetComponent<Hitbox>().GetDamage());
+            player.gameObject.GetComponent<HealthManager>().TakeDamage(collider.gameObject.GetComponent<Hitbox>().GetDamage());
             player.SwitchState(player.DamagedState);
         }
     }

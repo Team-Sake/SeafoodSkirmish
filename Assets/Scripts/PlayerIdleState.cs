@@ -27,7 +27,7 @@ public class PlayerIdleState : PlayerBaseState
     {
         if (collider.gameObject.CompareTag("Enemy Hitbox"))
         {
-            player.gameObject.GetComponent<PlayerHealthManager>().TakeDamage(collider.gameObject.GetComponent<Hitbox>().GetDamage());
+            player.gameObject.GetComponent<HealthManager>().TakeDamage(collider.gameObject.GetComponent<Hitbox>().GetDamage());
             player.SwitchState(player.DamagedState);
         }
     }

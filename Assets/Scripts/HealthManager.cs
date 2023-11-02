@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealthManager : MonoBehaviour
+public class HealthManager : MonoBehaviour
 {
     float currentHealth;
     public float maxHealth;

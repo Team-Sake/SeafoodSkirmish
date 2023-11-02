@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerAttackStartupState : PlayerBaseState
 {
     float currentTime = 0f;
-    float startingTime = 1f;
+    float startingTime = 0.2f;
     // Start is called before the first frame update
     public override void EnterState(PlayerStateManager player)
     {
@@ -13,7 +13,7 @@ public class PlayerAttackStartupState : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager player)
     {
-        currentTime -= 1 * Time.deltaTime;
+        currentTime -= Time.deltaTime;
         if (currentTime <= 0)
         {
             player.SwitchState(player.AttackState);
@@ -24,7 +24,7 @@ public class PlayerAttackStartupState : PlayerBaseState
     {
         if (collider.gameObject.CompareTag("Enemy Hitbox"))
         {
-            player.gameObject.GetComponent<PlayerHealthManager>().TakeDamage(collider.gameObject.GetComponent<Hitbox>().GetDamage());
+            player.gameObject.GetComponent<HealthManager>().TakeDamage(collider.gameObject.GetComponent<Hitbox>().GetDamage());
             player.SwitchState(player.DamagedState);
         }
     }

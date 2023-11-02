@@ -17,7 +17,7 @@ public class PlayerDamagedState : PlayerBaseState
         currentTime -= Time.deltaTime;
         if (currentTime <= 0)
         {
-            if (player.gameObject.GetComponent<PlayerHealthManager>().IsDead())
+            if (player.gameObject.GetComponent<HealthManager>().IsDead())
             {
                 player.SwitchState(player.DeadState);
             }
