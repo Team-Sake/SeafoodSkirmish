@@ -41,6 +41,10 @@ public class FishingSlider : MonoBehaviour
 
     [SerializeField] Timer timer;
 
+    [SerializeField] TryAgainButton tryAgainButton;
+    [SerializeField] ContinueButton continueButton;
+
+
     bool pause = false;
 
 
@@ -119,12 +123,15 @@ public class FishingSlider : MonoBehaviour
     private void Lose()
     {
         pause = true;
+        tryAgainButton.gameObject.SetActive(true);
+        
     }
     
     private void Win()
     {
         timer.timerIsRunning = false;
         pause = true;
+        continueButton.gameObject.SetActive(true);
         Debug.Log("You caught the fish, go to phase 2");
     }
 
