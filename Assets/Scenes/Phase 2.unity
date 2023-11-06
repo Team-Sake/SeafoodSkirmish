@@ -274,10 +274,10 @@ MonoBehaviour:
   targetLeft: {fileID: 395056773}
   targetRight: {fileID: 764400469}
   speed: 1
-  attackTime: 0.25
+  attackTime: 0.1
   recoveryTime: 1
   attackStartupTime: 0.5
-  vulnerableTime: 1
+  vulnerableTime: 0.5
   DefaultPosition: {x: 0, y: 0, z: 0}
   isStartupLeft: 0
   isStartupRight: 0
@@ -652,7 +652,7 @@ MonoBehaviour:
   speed: 1
   isLeft: 0
   isRight: 0
-  dodgeTime: 0.75
+  dodgeTime: 0.4
   isAtCenter: 0
 --- !u!61 &778382216
 BoxCollider2D:
