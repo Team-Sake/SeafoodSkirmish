@@ -40,6 +40,7 @@ public class FishingSlider : MonoBehaviour
     [SerializeField] Transform progressBarContainer;
 
     [SerializeField] Timer timer;
+    [SerializeField] markerCollision collision;
 
     [SerializeField] TryAgainButton tryAgainButton;
     [SerializeField] ContinueButton continueButton;
@@ -87,32 +88,33 @@ public class FishingSlider : MonoBehaviour
         Hook();
         ProgressCheck();
     }
-
+    
     private void ProgressCheck()
     {
         Vector3 ls = progressBarContainer.localScale;
         ls.y = hookProgress;
         progressBarContainer.localScale = ls;
 
-        float min = hookPosition - hookSize / 2;
-        float max = hookPosition + hookSize / 2;
+        //float min = hookPosition - hookSize;
+        //float max = hookPosition + hookSize;
 
         if (!timer.timerIsRunning)
         {
             Lose();
             return;
         }
-
-        if(min < fishPosition && fishPosition < max)
+     
+        if(collision.getChecker() == true)
         {
             hookProgress += hookPower * Time.deltaTime;
         }
-        else
+        else if(collision.getChecker() == false)
         {
             hookProgress -= hookProgressDegradationPower * Time.deltaTime;
 
         }
-        if(hookProgress >= 1.53f)
+
+        if (hookProgress >= 1.53f)
         {
             Win();
         }
