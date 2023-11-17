@@ -1936,8 +1936,8 @@ MonoBehaviour:
   smoothMotion: 1.5
   hook: {fileID: 1510596687}
   zone: {fileID: 2086922672}
-  hookSize: 0.1
-  zoneSize: 0.5
+  hookSize: 0.025
+  zoneSize: 1
   hookPower: 0.2
   hookPullPower: 0.005
   hookGravityPower: 0.0025
@@ -1946,7 +1946,8 @@ MonoBehaviour:
   hookSpriteRendererZone: {fileID: 2086922673}
   progressBarContainer: {fileID: 4956232}
   timer: {fileID: 1000817459}
-  collision: {fileID: 1510596689}
+  fishCollision: {fileID: 1510596689}
+  zoneCollision: {fileID: 2086922676}
   tryAgainButton: {fileID: 815037540}
   continueButton: {fileID: 1270635244}
 --- !u!4 &1556117233
@@ -2272,6 +2273,7 @@ GameObject:
   - component: {fileID: 2086922673}
   - component: {fileID: 2086922674}
   - component: {fileID: 2086922675}
+  - component: {fileID: 2086922676}
   m_Layer: 0
   m_Name: Zone
   m_TagString: Untagged
@@ -2418,6 +2420,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2086922676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086922671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccc0e50b9148fc84a8ea7a0cca3b983d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
