@@ -17,22 +17,22 @@ public class FishingSlider : MonoBehaviour
     float fishDestination;
 
     float fishTimer;
-    [SerializeField] float timerMultiplicator = 3f;
+    [SerializeField] float timerMultiplicator;
 
     float fishSpeed;
-    [SerializeField] float smoothMotion = 1f;
+    [SerializeField] float smoothMotion;
 
     [SerializeField] Transform hook;
     [SerializeField] Transform zone;
     float hookPosition;
-    [SerializeField] float hookSize = 0.1f;
-    [SerializeField] float zoneSize = 0.1f;
-    [SerializeField] float hookPower = 5f;
+    [SerializeField] float hookSize;
+    [SerializeField] float zoneSize;
+    [SerializeField] float hookPower;
     float hookProgress;
     float hookPullVelocity;
     [SerializeField] float hookPullPower = 0.01f;
     [SerializeField] float hookGravityPower = 0.005f;
-    [SerializeField] float hookProgressDegradationPower = 0.1f;
+    [SerializeField] float hookProgressDegradationPower;
 
     [SerializeField] SpriteRenderer hookSpriteRenderer;
     [SerializeField] SpriteRenderer hookSpriteRendererZone;
@@ -48,14 +48,45 @@ public class FishingSlider : MonoBehaviour
 
 
     bool pause = false;
-
+    //int level = DifficultyLevel.difficulty;
 
     private void Start()
     {
-        Resize();
-        ResizeZone();
+        
         timer.SetTimer(20);
         timer.StartTimer();
+        
+        if (DifficultyLevel.difficulty == 1)
+        {
+            timerMultiplicator = 4f;
+            smoothMotion = 1.5f;
+            hookSize = 0.025f;
+            zoneSize = 1f;
+            hookPower = 0.2f;
+            hookProgressDegradationPower = 0.2f;
+            Resize();
+            ResizeZone();
+        } else if (DifficultyLevel.difficulty == 2)
+        {
+            timerMultiplicator = 2f;
+            smoothMotion = 1f;
+            hookSize = 0.025f;
+            zoneSize = 0.5f;
+            hookPower = 0.15f;
+            hookProgressDegradationPower = 0.5f;
+            Resize();
+            ResizeZone();
+        } else if (DifficultyLevel.difficulty == 3)
+        {
+            timerMultiplicator = 1f;
+            smoothMotion = 1f;
+            hookSize = 0.025f;
+            zoneSize = 0.3f;
+            hookPower = 0.4f;
+            hookProgressDegradationPower = 0.6f;
+            Resize();
+            ResizeZone();
+        }
     }
 
     private void Resize()

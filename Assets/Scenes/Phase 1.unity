@@ -1932,16 +1932,16 @@ MonoBehaviour:
   topPivotZone: {fileID: 369321444}
   bottomPivotZone: {fileID: 654365972}
   fish: {fileID: 2086922672}
-  timerMultiplicator: 4
-  smoothMotion: 1.5
+  timerMultiplicator: 1
+  smoothMotion: 1
   hook: {fileID: 1510596687}
   zone: {fileID: 2086922672}
   hookSize: 0.025
-  zoneSize: 1
-  hookPower: 0.2
+  zoneSize: 0.3
+  hookPower: 0.3
   hookPullPower: 0.005
   hookGravityPower: 0.0025
-  hookProgressDegradationPower: 0.2
+  hookProgressDegradationPower: 0.6
   hookSpriteRenderer: {fileID: 1510596688}
   hookSpriteRendererZone: {fileID: 2086922673}
   progressBarContainer: {fileID: 4956232}
