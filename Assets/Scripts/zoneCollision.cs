@@ -14,8 +14,6 @@ public class zoneCollision : MonoBehaviour
         zoneCollider = GetComponent<BoxCollider2D>();
         min = zoneCollider.bounds.min;
         max = zoneCollider.bounds.max;
-        //min = center - zoneCollider.bounds.extents;
-        //max = center + zoneCollider.bounds.extents;
     }
 
     // Update is called once per frame

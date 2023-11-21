@@ -46,7 +46,6 @@ public class FishingSlider : MonoBehaviour
     [SerializeField] TryAgainButton tryAgainButton;
     [SerializeField] ContinueButton continueButton;
 
-
     bool pause = false;
     //int level = DifficultyLevel.difficulty;
 
@@ -58,12 +57,13 @@ public class FishingSlider : MonoBehaviour
         
         if (DifficultyLevel.difficulty == 1)
         {
-            timerMultiplicator = 4f;
-            smoothMotion = 1.5f;
+            timerMultiplicator = 2f;
+            smoothMotion = 1f;
             hookSize = 0.025f;
-            zoneSize = 1f;
+            zoneSize = 0.7f;
             hookPower = 0.2f;
             hookProgressDegradationPower = 0.2f;
+            
             Resize();
             ResizeZone();
         } else if (DifficultyLevel.difficulty == 2)
@@ -71,21 +71,27 @@ public class FishingSlider : MonoBehaviour
             timerMultiplicator = 2f;
             smoothMotion = 1f;
             hookSize = 0.025f;
-            zoneSize = 0.5f;
+            zoneSize = 0.4f;
             hookPower = 0.15f;
-            hookProgressDegradationPower = 0.5f;
+            hookProgressDegradationPower = 0.4f;
+            
             Resize();
             ResizeZone();
+            bottomPivotZone.position = new Vector3(bottomPivotZone.position.x - 1.442f, bottomPivotZone.position.y, bottomPivotZone.position.z);
+            topPivotZone.position = new Vector3(topPivotZone.position.x + 1.442f, topPivotZone.position.y, topPivotZone.position.z);
         } else if (DifficultyLevel.difficulty == 3)
         {
             timerMultiplicator = 1f;
             smoothMotion = 1f;
             hookSize = 0.025f;
-            zoneSize = 0.3f;
+            zoneSize = 0.2f;
             hookPower = 0.4f;
-            hookProgressDegradationPower = 0.6f;
+            hookProgressDegradationPower = 0.3f;
+            
             Resize();
             ResizeZone();
+            bottomPivotZone.position = new Vector3(bottomPivotZone.position.x - 1.942f, bottomPivotZone.position.y, bottomPivotZone.position.z);
+            topPivotZone.position = new Vector3(topPivotZone.position.x + 1.942f, topPivotZone.position.y, topPivotZone.position.z);
         }
     }
 

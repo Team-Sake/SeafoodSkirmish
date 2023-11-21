@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class markerCollision : MonoBehaviour
 {
-    //bool check = false;
     BoxCollider2D fishCollider;
     Vector3 min, max;
     // Start is called before the first frame update
@@ -17,21 +16,6 @@ public class markerCollision : MonoBehaviour
         min = fishCollider.bounds.min;
         max = fishCollider.bounds.max;
     }
-    /*private void OnTriggerStay2D(Collider2D collision)
-    {
-        
-        check = true;
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        check = false;
-    }
-
-    public bool getChecker()
-    {
-        return check;
-    }*/
 
     public float getMin()
     {
