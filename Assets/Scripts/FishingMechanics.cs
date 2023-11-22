@@ -17,22 +17,22 @@ public class FishingSlider : MonoBehaviour
     float fishDestination;
 
     float fishTimer;
-    [SerializeField] float timerMultiplicator = 3f;
+    [SerializeField] float timerMultiplicator;
 
     float fishSpeed;
-    [SerializeField] float smoothMotion = 1f;
+    [SerializeField] float smoothMotion;
 
     [SerializeField] Transform hook;
     [SerializeField] Transform zone;
     float hookPosition;
-    [SerializeField] float hookSize = 0.1f;
-    [SerializeField] float zoneSize = 0.1f;
-    [SerializeField] float hookPower = 5f;
+    [SerializeField] float hookSize;
+    [SerializeField] float zoneSize;
+    [SerializeField] float hookPower;
     float hookProgress;
     float hookPullVelocity;
     [SerializeField] float hookPullPower = 0.01f;
     [SerializeField] float hookGravityPower = 0.005f;
-    [SerializeField] float hookProgressDegradationPower = 0.1f;
+    [SerializeField] float hookProgressDegradationPower;
 
     [SerializeField] SpriteRenderer hookSpriteRenderer;
     [SerializeField] SpriteRenderer hookSpriteRendererZone;
@@ -40,20 +40,59 @@ public class FishingSlider : MonoBehaviour
     [SerializeField] Transform progressBarContainer;
 
     [SerializeField] Timer timer;
+    [SerializeField] markerCollision fishCollision;
+    [SerializeField] zoneCollision zoneCollision;
 
     [SerializeField] TryAgainButton tryAgainButton;
     [SerializeField] ContinueButton continueButton;
 
-
     bool pause = false;
-
+    //int level = DifficultyLevel.difficulty;
 
     private void Start()
     {
-        Resize();
-        ResizeZone();
+        
         timer.SetTimer(20);
         timer.StartTimer();
+        
+        if (DifficultyLevel.difficulty == 1)
+        {
+            timerMultiplicator = 2f;
+            smoothMotion = 1f;
+            hookSize = 0.025f;
+            zoneSize = 0.7f;
+            hookPower = 0.2f;
+            hookProgressDegradationPower = 0.2f;
+            
+            Resize();
+            ResizeZone();
+        } else if (DifficultyLevel.difficulty == 2)
+        {
+            timerMultiplicator = 2f;
+            smoothMotion = 1f;
+            hookSize = 0.025f;
+            zoneSize = 0.4f;
+            hookPower = 0.15f;
+            hookProgressDegradationPower = 0.4f;
+            
+            Resize();
+            ResizeZone();
+            bottomPivotZone.position = new Vector3(bottomPivotZone.position.x - 1.442f, bottomPivotZone.position.y, bottomPivotZone.position.z);
+            topPivotZone.position = new Vector3(topPivotZone.position.x + 1.442f, topPivotZone.position.y, topPivotZone.position.z);
+        } else if (DifficultyLevel.difficulty == 3)
+        {
+            timerMultiplicator = 1f;
+            smoothMotion = 1f;
+            hookSize = 0.025f;
+            zoneSize = 0.2f;
+            hookPower = 0.4f;
+            hookProgressDegradationPower = 0.3f;
+            
+            Resize();
+            ResizeZone();
+            bottomPivotZone.position = new Vector3(bottomPivotZone.position.x - 1.942f, bottomPivotZone.position.y, bottomPivotZone.position.z);
+            topPivotZone.position = new Vector3(topPivotZone.position.x + 1.942f, topPivotZone.position.y, topPivotZone.position.z);
+        }
     }
 
     private void Resize()
@@ -87,23 +126,20 @@ public class FishingSlider : MonoBehaviour
         Hook();
         ProgressCheck();
     }
-
+    
     private void ProgressCheck()
     {
         Vector3 ls = progressBarContainer.localScale;
         ls.y = hookProgress;
         progressBarContainer.localScale = ls;
 
-        float min = hookPosition - hookSize / 2;
-        float max = hookPosition + hookSize / 2;
-
         if (!timer.timerIsRunning)
         {
             Lose();
             return;
         }
-
-        if(min < fishPosition && fishPosition < max)
+     
+        if(fishCollision.getMin() > zoneCollision.getMin() && fishCollision.getMax() < zoneCollision.getMax())
         {
             hookProgress += hookPower * Time.deltaTime;
         }
@@ -112,7 +148,8 @@ public class FishingSlider : MonoBehaviour
             hookProgress -= hookProgressDegradationPower * Time.deltaTime;
 
         }
-        if(hookProgress >= 1.53f)
+
+        if (hookProgress >= 1.53f)
         {
             Win();
         }
