@@ -9,6 +9,8 @@ public class EnemyTranslate : MonoBehaviour
     public GameObject startupRight;
     public GameObject targetLeft;
     public GameObject targetRight;
+    public GameObject enemyPrefab;
+    public GameObject activeEnemy;
     public float speed;
     public float attackTime;
     public float recoveryTime;
@@ -23,6 +25,29 @@ public class EnemyTranslate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Instantiate(myPrefab);
+        // Instantiate(myPrefab, new Vector3(0,0,0), Quaternion.identity);
+        if (DifficultyLevel.difficulty == 1){
+            speed = 2;
+            //enemy prefab is set to speed 1
+            // activeEnemy = Instantiate(enemyPrefab, enemy.transform.position, Quaternion.identity);
+            
+            Debug.Log("Enemy 1");
+           
+        }
+        else if (DifficultyLevel.difficulty == 2){
+            //enemy prefav set to speed 2
+            speed = 4;
+            // Instantiate(enemyPrefab, enemy.transform.position, Quaternion.identity);
+            // Debug.Log("Enemy 2");
+           
+        }
+        else if (DifficultyLevel.difficulty == 3){
+            speed = 6;
+            //enemy prefav is set to speed 3
+            // Instantiate(enemyPrefab, enemy.transform.position, Quaternion.identity);
+            // Debug.Log("Enemy 3");
+        }
         DefaultPosition = enemy.transform.position;      
         isStartupLeft = false;
         isAttackingLeft = false;
@@ -59,5 +84,10 @@ public class EnemyTranslate : MonoBehaviour
     public Transform getEnemy()
     {
         return enemy;
+    }
+
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
     }
 }

@@ -13,9 +13,14 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyRecoveryState recoveryState = new EnemyRecoveryState();
     public EnemyVulnerableState vulnerableState = new EnemyVulnerableState();
     public EnemyDeadState deadState = new EnemyDeadState();
+    public SpriteSwapper spriteSwapper;
     // public EnemyStunnedState stunnedState = new EnemyStunnedState(); 
     void Start()
     {
+        if (spriteSwapper != null)
+        {
+            spriteSwapper.SwapSprite();
+        }
         currentState = idleState;
         currentState.EnterState(this);
     }
