@@ -11,9 +11,8 @@ public class Phase2TransitionAnimation : MonoBehaviour
         StartCoroutine(transition.AnimateInTransition());
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AnimateOut()
     {
-        
+        StartCoroutine(transition.AnimateOutTransition());
     }
 }
