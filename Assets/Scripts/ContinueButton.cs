@@ -3,8 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class ContinueButton : MonoBehaviour
 {
+
+    [SerializeField] Transition transition;
+ 
     public void ContinueGame()
     {
-        SceneManager.LoadScene("Phase 2"); // loads next scene
+        //transition.AnimateTransition();
+        //SceneManager.LoadScene("Phase 2"); // loads next scene
     }
 }

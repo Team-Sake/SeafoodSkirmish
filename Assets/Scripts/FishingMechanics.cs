@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FishingSlider : MonoBehaviour
@@ -45,13 +46,16 @@ public class FishingSlider : MonoBehaviour
 
     [SerializeField] TryAgainButton tryAgainButton;
     [SerializeField] ContinueButton continueButton;
+    [SerializeField] Transition transition;
+    [SerializeField] Phase1FishAnim phase1FishAnim;
+    [SerializeField] TextMeshProUGUI fishCaughtText; 
 
     bool pause = false;
     //int level = DifficultyLevel.difficulty;
 
     private void Start()
     {
-        
+        StartCoroutine(transition.AnimateInTransition());
         timer.SetTimer(20);
         timer.StartTimer();
         
@@ -168,7 +172,10 @@ public class FishingSlider : MonoBehaviour
     {
         timer.timerIsRunning = false;
         pause = true;
-        continueButton.gameObject.SetActive(true);
+        fishCaughtText.color = new Color(0f, 0f, 0f, 255f);
+        StartCoroutine(transition.AnimateOutTransition());
+        StartCoroutine(phase1FishAnim.AnimateFish());
+        //continueButton.gameObject.SetActive(true);
         Debug.Log("You caught the fish, go to phase 2");
     }
 
