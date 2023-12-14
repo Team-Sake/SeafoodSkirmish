@@ -22,6 +22,11 @@ public class EnemyVulnerableState : EnemyBaseState
             audioSource.Play();
             Debug.Log("Enemy Damaged");
             enemy.GetComponent<HealthManager>().TakeDamage(collider.GetComponent<Hitbox>().damage);
+            if (renderer.sprite != null)
+            {
+                // spriteRenderer.sprite = spriteArray[1];
+                renderer.sprite = SpriteArray.Instance.spriteArray[4];
+            }
             if (enemy.GetComponent<HealthManager>().IsDead())
             {
                 renderer.color = Color.gray;
