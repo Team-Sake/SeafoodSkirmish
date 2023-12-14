@@ -177,6 +177,8 @@ public class FishingSlider : MonoBehaviour
         progressBar.SetActive(false);
         GameObject timerText = GameObject.Find("Timer Text");
         timerText.SetActive(false);
+        GameObject player = GameObject.Find("playerhook");
+        player.SetActive(false);
         tryAgainButton.gameObject.SetActive(true);
         
     }
@@ -197,6 +199,8 @@ public class FishingSlider : MonoBehaviour
         progressBar.SetActive(false);
         GameObject timerText = GameObject.Find("Timer Text");
         timerText.SetActive(false);
+        GameObject player = GameObject.Find("playerhook");
+        player.SetActive(false);
         fishCaughtText.color = new Color(255f, 250f, 134f, 255f);
         StartCoroutine(transition.AnimateOutTransition());
         StartCoroutine(phase1FishAnim.AnimateFish());
