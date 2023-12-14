@@ -41,16 +41,16 @@ public class EnemyTranslate : MonoBehaviour
             speed = 1.6f;
             attackStartupTime = 0.4f;
             vulnerableTime = 0.5f;
-            recoveryTime = 1.3f;
+            recoveryTime = 1.5f;
             // Instantiate(enemyPrefab, enemy.transform.position, Quaternion.identity);
             // Debug.Log("Enemy 2");
            
         }
         else if (DifficultyLevel.difficulty == 3){
-            speed = 2.3f;
+            speed = 2f;
             attackStartupTime = 0.3f;
-            vulnerableTime = 0.4f;
-            recoveryTime = 1.0f;
+            vulnerableTime = 0.7f;
+            recoveryTime = 1.5f;
             //enemy prefav is set to speed 3
             // Instantiate(enemyPrefab, enemy.transform.position, Quaternion.identity);
             // Debug.Log("Enemy 3");
@@ -206,10 +206,10 @@ public class EnemyTranslate : MonoBehaviour
                 if (spriteRenderer.sprite != null)
                 {
                     if (enemy_health < 30){
-                        spriteRenderer.sprite = SpriteArray.Instance.spriteArray[6];
+                        spriteRenderer.sprite = SpriteArray.Instance.spriteArray[12];
                     }
                     else {
-                        spriteRenderer.sprite = SpriteArray.Instance.spriteArray[12];
+                        spriteRenderer.sprite = SpriteArray.Instance.spriteArray[6];
                     }
                 }
             }

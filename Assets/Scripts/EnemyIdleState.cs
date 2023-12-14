@@ -46,10 +46,10 @@ public class EnemyIdleState : EnemyBaseState
             if (spriteRenderer.sprite != null)
             {
                 if (enemy_health < 30){
-                    spriteRenderer.sprite = SpriteArray.Instance.spriteArray[6];
+                    spriteRenderer.sprite = SpriteArray.Instance.spriteArray[12];
                 }
                 else {
-                    spriteRenderer.sprite = SpriteArray.Instance.spriteArray[12];
+                    spriteRenderer.sprite = SpriteArray.Instance.spriteArray[6];
                 }
             }
         }
