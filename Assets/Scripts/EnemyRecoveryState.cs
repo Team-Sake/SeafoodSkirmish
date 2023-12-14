@@ -13,6 +13,17 @@ public class EnemyRecoveryState : EnemyBaseState
         animation.isRecovering = true;
         timeLeft = animation.recoveryTime;
         
+        SpriteRenderer spriteRenderer = animation.GetComponent<SpriteRenderer>();
+
+        if (spriteRenderer.sprite != null)
+        {
+            // spriteRenderer.sprite = spriteArray[1];
+            spriteRenderer.sprite = SpriteArray.Instance.spriteArray[3];
+        }
+        else {
+            Debug.LogWarning("SpriteRenderer is missing.");
+        }
+        
     }
 
     public override void OnTriggerEnter2D(EnemyStateManager enemy, Collider2D collider)
