@@ -9,6 +9,16 @@ public class PlayerAttackState : PlayerBaseState
         Debug.Log("Attack");
         currentTime = startingTime;
         player.gameObject.GetComponent<PlayerAttackManager>().CreateHitbox();
+        SpriteRenderer spriteRenderer = player.GetComponent<SpriteRenderer>();
+
+        if (spriteRenderer.sprite != null)
+        {
+            // spriteRenderer.sprite = spriteArray[1];
+            spriteRenderer.sprite = PlayerSpriteArray.Instance.playerSpriteArray[3];
+        }
+        else {
+            Debug.LogWarning("SpriteRenderer is missing.");
+        }
     }
 
     public override void UpdateState(PlayerStateManager player)

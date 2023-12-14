@@ -1270,6 +1270,8 @@ MonoBehaviour:
   playerSpriteArray:
   - {fileID: 21300000, guid: 9a25007b5e3688b4c97e8aff59434938, type: 3}
   - {fileID: 21300000, guid: 3647587dec660cc419e44419d2891a5a, type: 3}
+  - {fileID: 21300000, guid: 4c5073af7fa08714fa1e8ae89cffa8c5, type: 3}
+  - {fileID: 21300000, guid: 307379457985c2b42b1321517d2aeb60, type: 3}
 --- !u!1 &969676231
 GameObject:
   m_ObjectHideFlags: 0
