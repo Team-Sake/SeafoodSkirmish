@@ -23,7 +23,15 @@ public class Transition : MonoBehaviour
         animator.SetTrigger("AnimateOut");
         yield return new WaitForSeconds(1f);
         //load the scene we want
-        SceneManager.LoadScene(sceneName);
+        if (DifficultyLevel.difficulty == 3 && SceneManager.GetActiveScene().name == "Phase 2")
+        {
+            SceneManager.LoadScene("End Screen");
+            DifficultyLevel.difficulty = 1;
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneName);
+        }
                
      
     }

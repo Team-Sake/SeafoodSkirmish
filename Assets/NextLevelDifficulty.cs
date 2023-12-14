@@ -14,9 +14,9 @@ public class NextLevelDifficulty : MonoBehaviour
         {
             DifficultyLevel.difficulty = 3;
         }
-        else if (DifficultyLevel.difficulty == 3)
-        {
-            DifficultyLevel.difficulty = 1; 
-        }
+        //else if (DifficultyLevel.difficulty == 3)
+        //{
+          //  DifficultyLevel.difficulty = 1; 
+        //}
     }
 }
