@@ -758,7 +758,7 @@ MonoBehaviour:
   targetLeft: {fileID: 395056773}
   targetRight: {fileID: 764400469}
   speed: 1
-  attackTime: 0.04
+  attackTime: 0.01
   recoveryTime: 1
   attackStartupTime: 0.5
   vulnerableTime: 0.5

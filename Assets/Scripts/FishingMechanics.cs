@@ -87,11 +87,11 @@ public class FishingSlider : MonoBehaviour
             topPivotZone.position = new Vector3(topPivotZone.position.x + 1.442f, topPivotZone.position.y, topPivotZone.position.z);
         } else if (DifficultyLevel.difficulty == 3)
         {
-            timerMultiplicator = 0.5f;
+            timerMultiplicator = 2f;
             smoothMotion = 1f;
             hookSize = 0.025f;
             zoneSize = 0.25f;
-            hookPower = 0.4f;
+            hookPower = 0.3f;
             hookProgressDegradationPower = 0.3f;
             
             Resize();

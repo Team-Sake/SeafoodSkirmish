@@ -47,7 +47,7 @@ public class EnemyTranslate : MonoBehaviour
            
         }
         else if (DifficultyLevel.difficulty == 3){
-            speed = 2.1f;
+            speed = 2.2f;
             attackStartupTime = 0.3f;
             vulnerableTime = 0.55f;
             recoveryTime = 1.5f;
