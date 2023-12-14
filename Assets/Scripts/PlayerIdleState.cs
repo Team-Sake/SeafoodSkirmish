@@ -5,6 +5,17 @@ public class PlayerIdleState : PlayerBaseState
     public override void EnterState(PlayerStateManager player)
     {
         Debug.Log("Idle");
+        SpriteRenderer spriteRenderer = player.gameObject.GetComponent<SpriteRenderer>();
+
+        if (spriteRenderer.sprite != null)
+        {
+            // spriteRenderer.sprite = spriteArray[1];
+            spriteRenderer.sprite = PlayerSpriteArray.Instance.playerSpriteArray[0];
+        }
+        else {
+            Debug.LogWarning("SpriteRenderer is missing.");
+        }
+
     }
 
     public override void UpdateState(PlayerStateManager player)

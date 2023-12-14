@@ -10,6 +10,17 @@ public class PlayerDodgeRightState : PlayerBaseState
         animation = player.gameObject.GetComponent<DodgeTranslation>();
         // currentTime  = animation.dodgeTime;
         animation.isRight = true;
+        SpriteRenderer spriteRenderer = animation.GetComponent<SpriteRenderer>();
+
+        if (spriteRenderer.sprite != null)
+        {
+            // spriteRenderer.sprite = spriteArray[1];
+            spriteRenderer.sprite = PlayerSpriteArray.Instance.playerSpriteArray[1];
+            spriteRenderer.flipX = true;
+        }
+        else {
+            Debug.LogWarning("SpriteRenderer is missing.");
+        }
     }
 
     public override void UpdateState(PlayerStateManager player)

@@ -10,6 +10,17 @@ public class PlayerDodgeLeftState : PlayerBaseState
         animation = player.gameObject.GetComponent<DodgeTranslation>();
         // currentTime  = animation.dodgeTime;
         animation.isLeft = true;
+        SpriteRenderer spriteRenderer = animation.GetComponent<SpriteRenderer>();
+
+        if (spriteRenderer.sprite != null)
+        {
+            // spriteRenderer.sprite = spriteArray[1];
+            spriteRenderer.sprite = PlayerSpriteArray.Instance.playerSpriteArray[1];
+            spriteRenderer.flipX = false;
+        }
+        else {
+            Debug.LogWarning("SpriteRenderer is missing.");
+        }
     }
 
 
