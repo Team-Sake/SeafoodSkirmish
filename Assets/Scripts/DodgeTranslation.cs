@@ -34,7 +34,7 @@ public class DodgeTranslation : MonoBehaviour
 
     void displayHP(float hp)
     {
-        textMeshPro.text = string.Format("Health: {0}", hp);
+        textMeshPro.text = string.Format("Player HP: {0}", hp);
     }
 
     void FixedUpdate()
