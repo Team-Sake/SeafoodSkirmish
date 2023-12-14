@@ -68,47 +68,128 @@ public class EnemyTranslate : MonoBehaviour
         if (isStartupLeft)
         {
             enemy.position = Vector3.MoveTowards(enemy.position, startupLeft.transform.position, speed);
-            if (spriteRenderer.sprite != null)
-            {
+
+            if (DifficultyLevel.difficulty == 1){
+                if (spriteRenderer.sprite != null)
+                {
                 // spriteRenderer.sprite = spriteArray[2];
                 spriteRenderer.sprite = SpriteArray.Instance.spriteArray[2];
                 
+                }
+            }
+            else if (DifficultyLevel.difficulty == 2){
+                if (spriteRenderer.sprite != null)
+                {
+                // spriteRenderer.sprite = spriteArray[2];
+                spriteRenderer.sprite = SpriteArray.Instance.spriteArray[7];
+                spriteRenderer.flipX = false;
+                }
+
+            }
+            else if (DifficultyLevel.difficulty == 3){
+                if (spriteRenderer.sprite != null)
+                {
+                spriteRenderer.sprite = SpriteArray.Instance.spriteArray[10];
+                spriteRenderer.flipX = false;
+                }
             }
         }
         else if (isStartupRight)
         {
             enemy.position = Vector3.MoveTowards(enemy.position, startupRight.transform.position, speed);
-            if (spriteRenderer.sprite != null)
-            {
+
+            if (DifficultyLevel.difficulty == 1){
+                if (spriteRenderer.sprite != null)
+                {
                 // spriteRenderer.sprite = spriteArray[2];
                 spriteRenderer.sprite = SpriteArray.Instance.spriteArray[2];
+                }
+            }
+            else if (DifficultyLevel.difficulty == 2){
+                if (spriteRenderer.sprite != null)
+                {
+                // spriteRenderer.sprite = spriteArray[2];
+                spriteRenderer.sprite = SpriteArray.Instance.spriteArray[7];
+                spriteRenderer.flipX = true;
+                }
 
+            }
+            else if (DifficultyLevel.difficulty == 3){
+                if (spriteRenderer.sprite != null)
+                {
+                spriteRenderer.sprite = SpriteArray.Instance.spriteArray[10];
+                spriteRenderer.flipX = true;
+                }
             }
         }
         else if (isAttackingLeft)
         {
             enemy.position = Vector3.MoveTowards(enemy.position, targetLeft.transform.position, speed);
-            if (spriteRenderer.sprite != null)
-            {
+
+            if (DifficultyLevel.difficulty == 1){
+                if (spriteRenderer.sprite != null)
+                {
                 // spriteRenderer.sprite = spriteArray[1];
                 spriteRenderer.sprite = SpriteArray.Instance.spriteArray[1];
+                }
+            }
+            else if (DifficultyLevel.difficulty == 2){
+                if (spriteRenderer.sprite != null)
+                {
+                // spriteRenderer.sprite = spriteArray[1];
+                spriteRenderer.sprite = SpriteArray.Instance.spriteArray[8];
+                }
+            }
+            else if (DifficultyLevel.difficulty == 3){
+                if (spriteRenderer.sprite != null)
+                {
+                spriteRenderer.sprite = SpriteArray.Instance.spriteArray[11];
+                spriteRenderer.flipX = false;
+                }
             }
         }
         else if (isAttackingRight)
         {
             enemy.position = Vector3.MoveTowards(enemy.position, targetRight.transform.position, speed);
-            if (spriteRenderer.sprite != null)
-            {
+            
+            if (DifficultyLevel.difficulty == 1){
+                if (spriteRenderer.sprite != null)
+                {
                 spriteRenderer.sprite = SpriteArray.Instance.spriteArray[1];
+                }
+            }
+            else if (DifficultyLevel.difficulty == 2){
+                if (spriteRenderer.sprite != null)
+                {
+                // spriteRenderer.sprite = spriteArray[1];
+                spriteRenderer.sprite = SpriteArray.Instance.spriteArray[8];
+                }
+            }
+            else if (DifficultyLevel.difficulty == 3){
+                if (spriteRenderer.sprite != null)
+                {
+                spriteRenderer.sprite = SpriteArray.Instance.spriteArray[11];
+                spriteRenderer.flipX = true;
+                }
             }
         }
         else if (isRecovering)
         {
             enemy.position = Vector3.MoveTowards(enemy.position, DefaultPosition, speed);
-            if (spriteRenderer.sprite != null)
-            {
+
+            if (DifficultyLevel.difficulty == 1){
+                if (spriteRenderer.sprite != null)
+                {
                 spriteRenderer.sprite = SpriteArray.Instance.spriteArray[0];
+                }
             }
+            else if (DifficultyLevel.difficulty == 2){
+                if (spriteRenderer.sprite != null)
+                {
+                spriteRenderer.sprite = SpriteArray.Instance.spriteArray[9];
+                }
+            }
+
         }
     }
 

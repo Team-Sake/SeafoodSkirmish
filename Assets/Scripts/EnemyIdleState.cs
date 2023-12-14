@@ -19,11 +19,29 @@ public class EnemyIdleState : EnemyBaseState
         animation = enemy.gameObject.GetComponent<EnemyTranslate>();
         SpriteRenderer spriteRenderer = animation.GetComponent<SpriteRenderer>();
 
-        if (spriteRenderer.sprite != null)
-        {
+        if (DifficultyLevel.difficulty == 1){
+            if (spriteRenderer.sprite != null)
+            {
             // spriteRenderer.sprite = spriteArray[1];
             spriteRenderer.sprite = SpriteArray.Instance.spriteArray[0];
+            }
         }
+        else if (DifficultyLevel.difficulty == 2){
+            if (spriteRenderer.sprite != null)
+            {
+            // spriteRenderer.sprite = spriteArray[1];
+            spriteRenderer.sprite = SpriteArray.Instance.spriteArray[5];
+            }
+        }
+        else if (DifficultyLevel.difficulty == 3){
+            if (spriteRenderer.sprite != null)
+            {
+            // spriteRenderer.sprite = spriteArray[1];
+            spriteRenderer.sprite = SpriteArray.Instance.spriteArray[6];
+            }
+        }
+
+    
         else {
             Debug.LogWarning("SpriteRenderer is missing.");
         }

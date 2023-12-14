@@ -9,7 +9,7 @@ public class EnemyVulnerableState : EnemyBaseState
     public override void EnterState(EnemyStateManager enemy)
     {
         renderer = enemy.GetComponent<SpriteRenderer>();
-        renderer.color = Color.yellow;
+        // renderer.color = Color.yellow;
         timeLeft = enemy.GetComponent<EnemyTranslate>().vulnerableTime;
         Debug.Log("Enemy Vulnerable");
     }
