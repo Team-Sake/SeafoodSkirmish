@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FishingSlider : MonoBehaviour
 {
+    AudioSource m_AudioSource;
 
     [SerializeField] Transform topPivot;
     [SerializeField] Transform bottomPivot;
@@ -172,11 +173,19 @@ public class FishingSlider : MonoBehaviour
     {
         timer.timerIsRunning = false;
         pause = true;
+        GameObject marker = GameObject.Find("Marker");
+        marker.SetActive(false);
+        GameObject zone = GameObject.Find("Zone");
+        zone.SetActive(false);
+        GameObject fishBar = GameObject.Find("HookFishBar");
+        fishBar.SetActive(false);
+        GameObject progressBarContainer = GameObject.Find("ProgressBarContainer");
+        progressBarContainer.SetActive(false);
+        GameObject progressBar = GameObject.Find("ProgressBar");
+        progressBar.SetActive(false);
         fishCaughtText.color = new Color(255f, 250f, 134f, 255f);
         StartCoroutine(transition.AnimateOutTransition());
         StartCoroutine(phase1FishAnim.AnimateFish());
-        //continueButton.gameObject.SetActive(true);
-        Debug.Log("You caught the fish, go to phase 2");
     }
 
     void Hook()
