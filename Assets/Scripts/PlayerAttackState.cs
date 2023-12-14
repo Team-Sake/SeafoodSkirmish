@@ -5,23 +5,18 @@ public class PlayerAttackState : PlayerBaseState
     float currentTime = 0f;
     float startingTime = 0.2f;
 
-    AudioSource audioSource;
-    public AudioClip hit;
-
     public override void EnterState(PlayerStateManager player)
     {
+        player.gameObject.GetComponent<AudioSourceManager>().PlayHit();
         Debug.Log("Attack");
         currentTime = startingTime;
         player.gameObject.GetComponent<PlayerAttackManager>().CreateHitbox();
         SpriteRenderer spriteRenderer = player.GetComponent<SpriteRenderer>();
-
+        
         if (spriteRenderer.sprite != null)
         {
             // spriteRenderer.sprite = spriteArray[1];
             spriteRenderer.sprite = PlayerSpriteArray.Instance.playerSpriteArray[3];
-            audioSource = player.gameObject.GetComponent<AudioSource>();
-            audioSource.PlayOneShot(hit);
-
         }
         else {
             Debug.LogWarning("SpriteRenderer is missing.");
