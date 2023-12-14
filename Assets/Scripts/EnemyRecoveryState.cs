@@ -15,14 +15,14 @@ public class EnemyRecoveryState : EnemyBaseState
         
         SpriteRenderer spriteRenderer = animation.GetComponent<SpriteRenderer>();
 
-        if (spriteRenderer.sprite != null)
-        {
-            // spriteRenderer.sprite = spriteArray[1];
-            spriteRenderer.sprite = SpriteArray.Instance.spriteArray[3];
-        }
-        else {
-            Debug.LogWarning("SpriteRenderer is missing.");
-        }
+        // if (spriteRenderer.sprite != null)
+        // {
+        //     // spriteRenderer.sprite = spriteArray[1];
+        //     spriteRenderer.sprite = SpriteArray.Instance.spriteArray[3];
+        // }
+        // else {
+        //     Debug.LogWarning("SpriteRenderer is missing.");
+        // }
         
     }
 
