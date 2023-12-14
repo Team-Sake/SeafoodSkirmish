@@ -23,16 +23,26 @@ public class Transition : MonoBehaviour
         animator.SetTrigger("AnimateOut");
         yield return new WaitForSeconds(1f);
         //load the scene we want
-        if (DifficultyLevel.difficulty == 3 && SceneManager.GetActiveScene().name == "Phase 2")
+        
+        if (DifficultyLevel.difficulty == 3 & SceneManager.GetActiveScene().name == "Phase 2")
         {
             SceneManager.LoadScene("End Screen");
             DifficultyLevel.difficulty = 1;
+       
         }
         else
         {
+            if (DifficultyLevel.difficulty == 1 & SceneManager.GetActiveScene().name == "Phase 2")
+            {
+                DifficultyLevel.difficulty = 2;
+            }
+            else if (DifficultyLevel.difficulty == 2 & SceneManager.GetActiveScene().name == "Phase 2")
+            {
+                DifficultyLevel.difficulty = 3;
+            }
             SceneManager.LoadScene(sceneName);
         }
-               
-     
+
+
     }
 }
