@@ -4,10 +4,14 @@ public class PlayerDamagedState : PlayerBaseState
 {
     float currentTime = 0f;
     float startingTime = 1f;
+
+    AudioSource audioSource;
     public override void EnterState(PlayerStateManager player)
     {
         Debug.Log("Damaged");
         currentTime = startingTime;
+        audioSource = player.gameObject.GetComponent<AudioSource>();
+        audioSource.Play();
         SpriteRenderer spriteRenderer = player.GetComponent<SpriteRenderer>();
         if (spriteRenderer.sprite != null)
         {

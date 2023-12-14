@@ -6,6 +6,7 @@ public class PlayerAttackState : PlayerBaseState
     float startingTime = 0.2f;
 
     AudioSource audioSource;
+    public AudioClip hit;
 
     public override void EnterState(PlayerStateManager player)
     {
@@ -19,7 +20,7 @@ public class PlayerAttackState : PlayerBaseState
             // spriteRenderer.sprite = spriteArray[1];
             spriteRenderer.sprite = PlayerSpriteArray.Instance.playerSpriteArray[3];
             audioSource = player.gameObject.GetComponent<AudioSource>();
-            audioSource.Play();
+            audioSource.PlayOneShot(hit);
 
         }
         else {
