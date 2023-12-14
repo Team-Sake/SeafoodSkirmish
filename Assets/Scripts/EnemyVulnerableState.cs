@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyVulnerableState : EnemyBaseState
 {
+    AudioSource audioSource;
 
     float timeLeft;
     SpriteRenderer renderer;
@@ -17,6 +18,8 @@ public class EnemyVulnerableState : EnemyBaseState
     {
         if (collider.gameObject.CompareTag("Player Hitbox"))
         {
+            audioSource = enemy.gameObject.GetComponent<AudioSource>();
+            audioSource.Play();
             Debug.Log("Enemy Damaged");
             enemy.GetComponent<HealthManager>().TakeDamage(collider.GetComponent<Hitbox>().damage);
             if (enemy.GetComponent<HealthManager>().IsDead())

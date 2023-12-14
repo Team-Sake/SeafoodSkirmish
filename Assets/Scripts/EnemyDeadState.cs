@@ -8,7 +8,6 @@ public class EnemyDeadState : EnemyBaseState
     Phase2TransitionAnimation phase2anim;
     TextMeshProUGUI fishDeadText; 
     GameObject nextLevelButton;
-   
     public override void EnterState(EnemyStateManager enemy)
     {
         Debug.Log("Enemy dead");

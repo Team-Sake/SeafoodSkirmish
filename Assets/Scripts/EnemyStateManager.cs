@@ -6,6 +6,7 @@ public class EnemyStateManager : MonoBehaviour
 {
     // Start is called before the first frame update
 
+
     EnemyBaseState currentState;    
     public EnemyIdleState idleState =  new EnemyIdleState();
     public EnemyAttackStartupState attackStartupState = new EnemyAttackStartupState();
