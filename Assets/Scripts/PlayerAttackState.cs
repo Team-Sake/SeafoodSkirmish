@@ -4,6 +4,9 @@ public class PlayerAttackState : PlayerBaseState
 {
     float currentTime = 0f;
     float startingTime = 0.2f;
+
+    AudioSource audioSource;
+
     public override void EnterState(PlayerStateManager player)
     {
         Debug.Log("Attack");
@@ -15,6 +18,9 @@ public class PlayerAttackState : PlayerBaseState
         {
             // spriteRenderer.sprite = spriteArray[1];
             spriteRenderer.sprite = PlayerSpriteArray.Instance.playerSpriteArray[3];
+            audioSource = player.gameObject.GetComponent<AudioSource>();
+            audioSource.Play();
+
         }
         else {
             Debug.LogWarning("SpriteRenderer is missing.");
