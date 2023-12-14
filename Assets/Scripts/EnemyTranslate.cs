@@ -20,6 +20,8 @@ public class EnemyTranslate : MonoBehaviour
     public bool isAttackingLeft;
     public bool isAttackingRight;
     public bool isRecovering;
+    public SpriteRenderer spriteRenderer;
+    public Sprite[] spriteArray;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,7 @@ public class EnemyTranslate : MonoBehaviour
             speed = 2;
             attackStartupTime = 0.5f;
             vulnerableTime = 0.5f;
+            recoveryTime = 2;
             //enemy prefab is set to speed 1
             // activeEnemy = Instantiate(enemyPrefab, enemy.transform.position, Quaternion.identity);
             Debug.Log("Enemy 1");
@@ -37,6 +40,7 @@ public class EnemyTranslate : MonoBehaviour
             speed = 4;
             attackStartupTime = 0.4f;
             vulnerableTime = 0.4f;
+            recoveryTime = 1.5;
             // Instantiate(enemyPrefab, enemy.transform.position, Quaternion.identity);
             // Debug.Log("Enemy 2");
            
@@ -45,11 +49,13 @@ public class EnemyTranslate : MonoBehaviour
             speed = 6;
             attackStartupTime = 0.3f;
             vulnerableTime = 0.3f;
+            recoveryTime = 1;
             //enemy prefav is set to speed 3
             // Instantiate(enemyPrefab, enemy.transform.position, Quaternion.identity);
             // Debug.Log("Enemy 3");
         }
-        DefaultPosition = enemy.transform.position;      
+        DefaultPosition = enemy.transform.position;
+        spriteRenderer.sprite = spriteArray[0];     
         isStartupLeft = false;
         isAttackingLeft = false;
         isStartupRight = false;
@@ -63,22 +69,46 @@ public class EnemyTranslate : MonoBehaviour
         if (isStartupLeft)
         {
             enemy.position = Vector3.MoveTowards(enemy.position, startupLeft.transform.position, speed);
+            if (spriteRenderer != null)
+            {
+                // newSprite = startUp;
+                spriteRenderer.sprite = spriteArray[2];
+            }
         }
         else if (isStartupRight)
         {
             enemy.position = Vector3.MoveTowards(enemy.position, startupRight.transform.position, speed);
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.sprite = spriteArray[2];
+            }
         }
         else if (isAttackingLeft)
         {
             enemy.position = Vector3.MoveTowards(enemy.position, targetLeft.transform.position, speed);
+            if (spriteRenderer != null)
+            {
+                // newSprite = startUp;
+                spriteRenderer.sprite = spriteArray[1];
+            }
         }
         else if (isAttackingRight)
         {
             enemy.position = Vector3.MoveTowards(enemy.position, targetRight.transform.position, speed);
+            if (spriteRenderer != null)
+            {
+                // newSprite = startUp;
+                spriteRenderer.sprite = spriteArray[1];
+            }
         }
         else if (isRecovering)
         {
             enemy.position = Vector3.MoveTowards(enemy.position, DefaultPosition, speed);
+            if (spriteRenderer != null)
+            {
+                // newSprite = startUp;
+                spriteRenderer.sprite = spriteArray[3];
+            }
         }
     }
 
@@ -86,4 +116,5 @@ public class EnemyTranslate : MonoBehaviour
     {
         return enemy;
     }
+
 }
