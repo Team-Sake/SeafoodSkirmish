@@ -21,6 +21,7 @@ public class EnemyTranslate : MonoBehaviour
     public bool isAttackingRight;
     public bool isRecovering;
     public SpriteRenderer spriteRenderer;
+    public float enemy_health;
     // public Sprite[] spriteArray;
     // Start is called before the first frame update
     void Start()
@@ -177,26 +178,43 @@ public class EnemyTranslate : MonoBehaviour
         {
             enemy.position = Vector3.MoveTowards(enemy.position, DefaultPosition, speed);
 
+            enemy_health = enemy.GetComponent<HealthManager>().currentHealth;
+            
             if (DifficultyLevel.difficulty == 1){
                 if (spriteRenderer.sprite != null)
                 {
-                spriteRenderer.sprite = SpriteArray.Instance.spriteArray[0];
+                    if (enemy_health < 30){
+                        spriteRenderer.sprite = SpriteArray.Instance.spriteArray[3];
+                    }
+                    else {
+                        spriteRenderer.sprite = SpriteArray.Instance.spriteArray[0];
+                    }
                 }
             }
             else if (DifficultyLevel.difficulty == 2){
                 if (spriteRenderer.sprite != null)
                 {
-                spriteRenderer.sprite = SpriteArray.Instance.spriteArray[9];
+                    if (enemy_health < 30){
+                        spriteRenderer.sprite = SpriteArray.Instance.spriteArray[9];
+                    }
+                    else {
+                        spriteRenderer.sprite = SpriteArray.Instance.spriteArray[5];
+                    }
                 }
             }
             else if (DifficultyLevel.difficulty == 3){
                 if (spriteRenderer.sprite != null)
                 {
-                spriteRenderer.sprite = SpriteArray.Instance.spriteArray[12];
+                    if (enemy_health < 30){
+                        spriteRenderer.sprite = SpriteArray.Instance.spriteArray[6];
+                    }
+                    else {
+                        spriteRenderer.sprite = SpriteArray.Instance.spriteArray[12];
+                    }
                 }
             }
-
         }
+
     }
 
     public Transform getEnemy()

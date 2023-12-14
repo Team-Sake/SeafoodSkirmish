@@ -7,12 +7,13 @@ public class EnemyIdleState : EnemyBaseState
 {
     int timer;
     float timeLeft;
-
+    public float enemy_health;
     EnemyTranslate animation;
 
     // Start is called before the first frame update
     public override void EnterState(EnemyStateManager enemy)
     {
+        enemy_health = enemy.GetComponent<HealthManager>().currentHealth;
         Debug.Log("Enemy Idle");
         timer = Random.Range(1,3);
         timeLeft = (float)timer;
@@ -22,22 +23,34 @@ public class EnemyIdleState : EnemyBaseState
         if (DifficultyLevel.difficulty == 1){
             if (spriteRenderer.sprite != null)
             {
-            // spriteRenderer.sprite = spriteArray[1];
-            spriteRenderer.sprite = SpriteArray.Instance.spriteArray[0];
+                if (enemy_health < 30){
+                    spriteRenderer.sprite = SpriteArray.Instance.spriteArray[3];
+                }
+                else {
+                    spriteRenderer.sprite = SpriteArray.Instance.spriteArray[0];
+                }
             }
         }
         else if (DifficultyLevel.difficulty == 2){
             if (spriteRenderer.sprite != null)
             {
-            // spriteRenderer.sprite = spriteArray[1];
-            spriteRenderer.sprite = SpriteArray.Instance.spriteArray[5];
+                if (enemy_health < 30){
+                    spriteRenderer.sprite = SpriteArray.Instance.spriteArray[9];
+                }
+                else {
+                    spriteRenderer.sprite = SpriteArray.Instance.spriteArray[5];
+                }
             }
         }
         else if (DifficultyLevel.difficulty == 3){
             if (spriteRenderer.sprite != null)
             {
-            // spriteRenderer.sprite = spriteArray[1];
-            spriteRenderer.sprite = SpriteArray.Instance.spriteArray[6];
+                if (enemy_health < 30){
+                    spriteRenderer.sprite = SpriteArray.Instance.spriteArray[6];
+                }
+                else {
+                    spriteRenderer.sprite = SpriteArray.Instance.spriteArray[12];
+                }
             }
         }
 

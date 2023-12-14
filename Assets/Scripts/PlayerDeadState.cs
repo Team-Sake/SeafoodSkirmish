@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class PlayerDeadState : PlayerBaseState
 {
+    GameObject enemy;
     public override void EnterState(PlayerStateManager player)
     {
+        enemy = GameObject.Find("Enemy");
+        enemy.SetActive(false);
+        
         Debug.Log("Dead");
         SpriteRenderer spriteRenderer = player.GetComponent<SpriteRenderer>();
         if (spriteRenderer.sprite != null)
