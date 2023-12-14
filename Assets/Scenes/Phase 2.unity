@@ -446,7 +446,7 @@ MonoBehaviour:
   targetLeft: {fileID: 395056773}
   targetRight: {fileID: 764400469}
   speed: 1
-  attackTime: 0.1
+  attackTime: 0.05
   recoveryTime: 1
   attackStartupTime: 0.5
   vulnerableTime: 0.5
@@ -1254,7 +1254,7 @@ MonoBehaviour:
   hitboxPoint: {fileID: 985093438}
   hitboxPrefab: {fileID: 5605948258024782781, guid: ee808b9b6c8c28f4180bc0bf13c02f6f, type: 3}
   activeHitbox: {fileID: 0}
-  hitBoxDamage: 50
+  hitBoxDamage: 10
 --- !u!114 &778382220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f482fd867aa88f4a9fa4b43e231ac0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 50
 --- !u!114 &778382221
 MonoBehaviour:
   m_ObjectHideFlags: 0

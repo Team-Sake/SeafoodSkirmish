@@ -28,7 +28,7 @@ public class EnemyTranslate : MonoBehaviour
         if (DifficultyLevel.difficulty == 1){
             speed = 1f;
             attackStartupTime = 0.5f;
-            vulnerableTime = 0.5f;
+            vulnerableTime = 0.75f;
             recoveryTime = 1.5f;
             //enemy prefab is set to speed 1
             // activeEnemy = Instantiate(enemyPrefab, enemy.transform.position, Quaternion.identity);
@@ -37,9 +37,9 @@ public class EnemyTranslate : MonoBehaviour
         }
         else if (DifficultyLevel.difficulty == 2){
             //enemy prefav set to speed 2
-            speed = 2f;
+            speed = 1.6f;
             attackStartupTime = 0.4f;
-            vulnerableTime = 0.4f;
+            vulnerableTime = 0.5f;
             recoveryTime = 1.3f;
             // Instantiate(enemyPrefab, enemy.transform.position, Quaternion.identity);
             // Debug.Log("Enemy 2");
@@ -48,7 +48,7 @@ public class EnemyTranslate : MonoBehaviour
         else if (DifficultyLevel.difficulty == 3){
             speed = 2.3f;
             attackStartupTime = 0.3f;
-            vulnerableTime = 0.3f;
+            vulnerableTime = 0.4f;
             recoveryTime = 1.0f;
             //enemy prefav is set to speed 3
             // Instantiate(enemyPrefab, enemy.transform.position, Quaternion.identity);
