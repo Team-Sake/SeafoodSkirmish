@@ -44,19 +44,21 @@ public class EnemyVulnerableState : EnemyBaseState
             if (DifficultyLevel.difficulty == 1){
                 if (renderer.sprite != null)
                 {
-                renderer.sprite = SpriteArray.Instance.spriteArray[13];
+                    renderer.sprite = SpriteArray.Instance.spriteArray[13];
+
+                    
                 }
             }
             else if (DifficultyLevel.difficulty == 2){
                 if (renderer.sprite != null)
                 {
-                renderer.sprite = SpriteArray.Instance.spriteArray[14];
+                    renderer.sprite = SpriteArray.Instance.spriteArray[14];
                 }
             }
             else if (DifficultyLevel.difficulty == 3){
                 if (renderer.sprite != null)
                 {
-                renderer.sprite = SpriteArray.Instance.spriteArray[15];
+                    renderer.sprite = SpriteArray.Instance.spriteArray[15];
                 }
             }
             // if (renderer.sprite != null)

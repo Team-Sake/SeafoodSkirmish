@@ -1313,6 +1313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1081578311}
   - component: {fileID: 1081578312}
+  - component: {fileID: 1081578313}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -1330,7 +1331,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -552.621, y: -249.9665, z: 4.064545}
-  m_LocalScale: {x: 21.435396, y: 10.161775, z: 1}
+  m_LocalScale: {x: 0.845, y: 0.72, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1556117233}
@@ -1376,7 +1377,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8307ca69f45757d40a43a5170b397fcc, type: 3}
   m_Color: {r: 0.7971698, g: 0.96516436, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1387,6 +1388,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1081578313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081578310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de01d468a4e053c4ead90519c8a627f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lvl2: {fileID: 21300000, guid: b6aa9ae9992e65443a11f32b5656b4c1, type: 3}
+  lvl3: {fileID: 21300000, guid: 544cf9dd0aa58c04399fd314b5bafe81, type: 3}
 --- !u!1 &1089627132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2905,7 +2920,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 844ee044d1a90a2419b17e54a972100f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.322
   m_Pitch: 1
   Loop: 0
   Mute: 0

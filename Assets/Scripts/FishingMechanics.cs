@@ -62,6 +62,7 @@ public class FishingSlider : MonoBehaviour
         
         if (DifficultyLevel.difficulty == 1)
         {
+            
             timerMultiplicator = 2f;
             smoothMotion = 1f;
             hookSize = 0.025f;
