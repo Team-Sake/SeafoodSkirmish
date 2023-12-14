@@ -165,6 +165,18 @@ public class FishingSlider : MonoBehaviour
     private void Lose()
     {
         pause = true;
+        GameObject marker = GameObject.Find("Marker");
+        marker.SetActive(false);
+        GameObject zone = GameObject.Find("Zone");
+        zone.SetActive(false);
+        GameObject fishBar = GameObject.Find("HookFishBar");
+        fishBar.SetActive(false);
+        GameObject progressBarContainer = GameObject.Find("ProgressBarContainer");
+        progressBarContainer.SetActive(false);
+        GameObject progressBar = GameObject.Find("ProgressBar");
+        progressBar.SetActive(false);
+        GameObject timerText = GameObject.Find("Timer Text");
+        timerText.SetActive(false);
         tryAgainButton.gameObject.SetActive(true);
         
     }
@@ -183,6 +195,8 @@ public class FishingSlider : MonoBehaviour
         progressBarContainer.SetActive(false);
         GameObject progressBar = GameObject.Find("ProgressBar");
         progressBar.SetActive(false);
+        GameObject timerText = GameObject.Find("Timer Text");
+        timerText.SetActive(false);
         fishCaughtText.color = new Color(255f, 250f, 134f, 255f);
         StartCoroutine(transition.AnimateOutTransition());
         StartCoroutine(phase1FishAnim.AnimateFish());
