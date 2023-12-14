@@ -189,6 +189,12 @@ public class EnemyTranslate : MonoBehaviour
                 spriteRenderer.sprite = SpriteArray.Instance.spriteArray[9];
                 }
             }
+            else if (DifficultyLevel.difficulty == 3){
+                if (spriteRenderer.sprite != null)
+                {
+                spriteRenderer.sprite = SpriteArray.Instance.spriteArray[12];
+                }
+            }
 
         }
     }

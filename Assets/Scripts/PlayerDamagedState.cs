@@ -8,6 +8,11 @@ public class PlayerDamagedState : PlayerBaseState
     {
         Debug.Log("Damaged");
         currentTime = startingTime;
+        SpriteRenderer spriteRenderer = player.GetComponent<SpriteRenderer>();
+        if (spriteRenderer.sprite != null)
+        {
+        spriteRenderer.sprite = PlayerSpriteArray.Instance.playerSpriteArray[4];
+        }
     }
 
 
