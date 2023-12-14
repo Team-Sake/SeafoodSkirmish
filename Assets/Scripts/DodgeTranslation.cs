@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 public class DodgeTranslation : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class DodgeTranslation : MonoBehaviour
     public bool isAtCenter;
 
     Vector3 DefaultPosition;
+
+    public float health;
+
+    public TextMeshProUGUI textMeshPro;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +32,15 @@ public class DodgeTranslation : MonoBehaviour
         DefaultPosition = player.transform.position;
     }
 
+    void displayHP(float hp)
+    {
+        textMeshPro.text = string.Format("Health: {0}", hp);
+    }
+
     void FixedUpdate()
     {
+        health = player.gameObject.GetComponent<HealthManager>().currentHealth;
+        displayHP(health);
         if (player.transform.position != DefaultPosition)
         {
             isAtCenter = false;
