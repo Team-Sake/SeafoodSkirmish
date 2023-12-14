@@ -172,7 +172,7 @@ public class FishingSlider : MonoBehaviour
     {
         timer.timerIsRunning = false;
         pause = true;
-        fishCaughtText.color = new Color(0f, 0f, 0f, 255f);
+        fishCaughtText.color = new Color(255f, 250f, 134f, 255f);
         StartCoroutine(transition.AnimateOutTransition());
         StartCoroutine(phase1FishAnim.AnimateFish());
         //continueButton.gameObject.SetActive(true);
