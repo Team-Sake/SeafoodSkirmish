@@ -14,10 +14,11 @@ public class EnemyDeadState : EnemyBaseState
         Debug.Log("Enemy dead");
         GameObject canvas = GameObject.Find("Canvas");
         phase2anim = canvas.GetComponent<Phase2TransitionAnimation>();
+        spriteRenderer = enemy.gameObject.GetComponent<SpriteRenderer>();
         if (spriteRenderer.sprite != null)
         {
             // spriteRenderer.sprite = spriteArray[1];
-            spriteRenderer.sprite = SpriteArray.Instance.spriteArray[5];
+            spriteRenderer.sprite = SpriteArray.Instance.spriteArray[4];
         }
         fishDeadText = GameObject.Find("FishDeadText").GetComponent<TextMeshProUGUI>();
         nextLevelButton = canvas.transform.Find("NextLevel").gameObject;
