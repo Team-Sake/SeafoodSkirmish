@@ -68,7 +68,7 @@ public class FishingSlider : MonoBehaviour
             hookSize = 0.025f;
             zoneSize = 0.7f;
             hookPower = 0.2f;
-            hookProgressDegradationPower = 0.2f;
+            hookProgressDegradationPower = 0f;
             
             Resize();
             ResizeZone();
@@ -78,8 +78,8 @@ public class FishingSlider : MonoBehaviour
             smoothMotion = 1f;
             hookSize = 0.025f;
             zoneSize = 0.4f;
-            hookPower = 0.15f;
-            hookProgressDegradationPower = 0.3f;
+            hookPower = 0.2f;
+            hookProgressDegradationPower = 0f;
             
             Resize();
             ResizeZone();
@@ -91,8 +91,8 @@ public class FishingSlider : MonoBehaviour
             smoothMotion = 1f;
             hookSize = 0.025f;
             zoneSize = 0.25f;
-            hookPower = 0.3f;
-            hookProgressDegradationPower = 0.3f;
+            hookPower = 0.2f;
+            hookProgressDegradationPower = 0f;
             
             Resize();
             ResizeZone();
